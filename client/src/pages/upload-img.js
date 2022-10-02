@@ -18,7 +18,6 @@ const UploadImg = () => {
     const onSubmit = () => {
         const formdata = new FormData();
         formdata.append('image', img)
-        console.log(img)
 
         axios.post('/upload', formdata)
             .then(function ({ status }) {
@@ -48,7 +47,6 @@ const UploadImg = () => {
             });
     }
 
-    console.log(isPass)
     return (
         <div className={styles.container} style={{ top: '20' }}>
             {isUpload ?
@@ -56,8 +54,8 @@ const UploadImg = () => {
                     <h1 style={{ marginBottom: '30px' }}>RESULT</h1>
                     <Space direction='vertical' size={40} align='center'>
                         {isPass ?
-                            <Card style={{ borderColor: '#00FF00', color: '#00FF00', fontSize: '28px' }}>Correct</Card>:
-                            <Card style={{ borderColor: '#FF0000', color: '#FF0000', fontSize: '28px' }}>Incorrect</Card>      
+                            <Card style={{ borderColor: '#00FF00', color: '#00FF00', fontSize: '28px' }}>Correct</Card> :
+                            <Card style={{ borderColor: '#FF0000', color: '#FF0000', fontSize: '28px' }}>Incorrect</Card>
                         }
                         <button style={{ width: '120px' }} onClick={() => navigate('/login')}>Log out</button>
                     </Space>
